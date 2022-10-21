@@ -1,11 +1,13 @@
 package com.example.OrderService.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import javax.validation.Valid;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Data
@@ -18,6 +20,7 @@ public class Customer {
     @GeneratedValue
     private int id;
     private String name;
+    @Email
     private String email;
     private String gender;
     @OneToMany(targetEntity = Product.class,cascade = CascadeType.ALL)
